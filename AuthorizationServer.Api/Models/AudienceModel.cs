@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
-
-namespace AuthorizationServer.Api.Models
+﻿namespace AuthorizationServer.Api.Models
 {
+    using System.ComponentModel.DataAnnotations;
+
     public class AudienceModel
     {
         [MaxLength(100)]

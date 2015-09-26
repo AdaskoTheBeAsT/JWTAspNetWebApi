@@ -1,17 +1,15 @@
-﻿using Microsoft.Owin.Security;
-using Microsoft.Owin.Security.DataHandler.Encoder;
-using Microsoft.Owin.Security.Jwt;
-using Microsoft.Owin.Security.OAuth;
-using Owin;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Http;
-
-namespace ResourceServer.Api
+﻿namespace ResourceServer.Api
 {
+    using System.Threading.Tasks;
+    using System.Web.Http;
+
+    using Microsoft.Owin.Security;
+    using Microsoft.Owin.Security.DataHandler.Encoder;
+    using Microsoft.Owin.Security.Jwt;
+    using Microsoft.Owin.Security.OAuth;
+
+    using Owin;
+
     public class Startup
     {
         public void Configuration(IAppBuilder app)

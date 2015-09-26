@@ -1,16 +1,17 @@
-﻿using AuthorizationServer.Api.Formats;
-using AuthorizationServer.Api.Providers;
-using Microsoft.Owin;
-using Microsoft.Owin.Security.OAuth;
-using Owin;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Http;
-
-namespace AuthorizationServer.Api
+﻿namespace AuthorizationServer.Api
 {
+    using System;
+    using System.Web.Http;
+
+    using Formats;
+
+    using Microsoft.Owin;
+    using Microsoft.Owin.Security.OAuth;
+
+    using Owin;
+
+    using Providers;
+
     public class Startup
     {
         public void Configuration(IAppBuilder app)

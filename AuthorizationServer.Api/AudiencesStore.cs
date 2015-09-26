@@ -1,14 +1,13 @@
-﻿using AuthorizationServer.Api.Entities;
-using Microsoft.Owin.Security.DataHandler.Encoder;
-using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Web;
-
-namespace AuthorizationServer.Api
+﻿namespace AuthorizationServer.Api
 {
+    using System;
+    using System.Collections.Concurrent;
+    using System.Security.Cryptography;
+
+    using Entities;
+
+    using Microsoft.Owin.Security.DataHandler.Encoder;
+
     public static class AudiencesStore
     {
         public static ConcurrentDictionary<string, Audience> AudiencesList = new ConcurrentDictionary<string, Audience>();

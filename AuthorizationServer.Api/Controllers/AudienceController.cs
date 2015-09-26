@@ -1,14 +1,10 @@
-﻿using AuthorizationServer.Api.Entities;
-using AuthorizationServer.Api.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
-
-namespace AuthorizationServer.Api.Controllers
+﻿namespace AuthorizationServer.Api.Controllers
 {
+    using System.Web.Http;
+
+    using AuthorizationServer.Api.Entities;
+    using AuthorizationServer.Api.Models;
+
     [RoutePrefix("api/audience")]
     public class AudienceController : ApiController
     {

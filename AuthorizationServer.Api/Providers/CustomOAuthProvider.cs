@@ -1,18 +1,14 @@
-﻿using Microsoft.Owin;
-using Microsoft.Owin.Security;
-using Microsoft.Owin.Security.OAuth;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web;
-
-namespace AuthorizationServer.Api.Providers
+﻿namespace AuthorizationServer.Api.Providers
 {
+    using System.Collections.Generic;
+    using System.Security.Claims;
+    using System.Threading.Tasks;
+
+    using Microsoft.Owin.Security;
+    using Microsoft.Owin.Security.OAuth;
+
     public class CustomOAuthProvider : OAuthAuthorizationServerProvider
     {
-
         public override Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
         {
             string clientId = string.Empty;
@@ -44,10 +40,9 @@ namespace AuthorizationServer.Api.Providers
 
         public override Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
-
             context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
 
-            //Dummy check here, you need to do your DB checks against membership system http://bit.ly/SPAAuthCode
+            // Dummy check here, you need to do your DB checks against membership system http://bit.ly/SPAAuthCode
             if (context.UserName != context.Password)
             {
                 context.SetError("invalid_grant", "The user name or password is incorrect");
@@ -62,12 +57,15 @@ namespace AuthorizationServer.Api.Providers
             identity.AddClaim(new Claim(ClaimTypes.Role, "Manager"));
             identity.AddClaim(new Claim(ClaimTypes.Role, "Supervisor"));
 
-            var props = new AuthenticationProperties(new Dictionary<string, string>
-                {
-                    {
-                         "audience", (context.ClientId == null) ? string.Empty : context.ClientId
-                    }
-                });
+            var props =
+                new AuthenticationProperties(
+                    new Dictionary<string, string>
+                        {
+                            {
+                                "audience",
+                                context.ClientId ?? string.Empty
+                            }
+                        });
 
             var ticket = new AuthenticationTicket(identity, props);
             context.Validated(ticket);

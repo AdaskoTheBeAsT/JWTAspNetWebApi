@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Security.Claims;
-using System.Web.Http;
-
-namespace ResourceServer.Api.Controllers
+﻿namespace ResourceServer.Api.Controllers
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Security.Claims;
+    using System.Web.Http;
+
     [Authorize]
     [RoutePrefix("api/protected")]
     public class ProtectedController : ApiController
